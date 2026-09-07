@@ -51,7 +51,7 @@ export async function uploadPost(newPost) {
   return await response.json();
 }
 
-// 5. 유저와 댓글 조회 함수를 준비합니다.
+// 5. 사용자와 댓글 조회 함수를 준비합니다.
 export async function getUserInfo(username) {
   const response = await fetch(`${BASE_URL}/users/${username}`);
 

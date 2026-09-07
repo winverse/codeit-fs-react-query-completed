@@ -23,7 +23,7 @@ function UserMenuButtonContent({ photo, name }) {
   );
 }
 
-// 2. UserMenuLoggedIn 컴포넌트를 만들어 유저 정보 조회와 Suspense를 연결합니다.
+// 2. UserMenuLoggedIn 컴포넌트를 만들어 사용자 정보 조회와 Suspense를 연결합니다.
 function UserMenuLoggedIn({ currentUsername }) {
   const { data: currentUserInfo } = useSuspenseQuery({
     queryKey: queryKeys.user.info(currentUsername),
