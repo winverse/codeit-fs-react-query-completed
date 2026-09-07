@@ -1,3 +1,5 @@
+'use client';
+
 import { useState } from 'react';
 import clsx from 'clsx';
 import Image from 'next/image';
@@ -95,26 +97,6 @@ function PostContent({
     queryKey: queryKeys.posts.likeCount(post.id),
     queryFn: ({ signal }) => getLikeCountByPostId(post.id, signal),
   });
-  <Button
-    className={clsx(styles.engagementButton, styles.likeButton)}
-    disabled={likeMutation.isPending}
-    onClick={() => {
-      handleLikeButtonClick(
-        isPostLikedByCurrentUser
-          ? USER_ACTION.UNLIKE_POST
-          : USER_ACTION.LIKE_POST,
-      );
-    }}
-  >
-    <Image
-      className={styles.like}
-      src={isPostLikedByCurrentUser ? yellowHeartImage : greyHeartImage}
-      alt="좋아요"
-      width={12}
-      height={12}
-    />
-    {`좋아요 ${likeCount ?? 0}개`}
-  </Button>;
 
   const likeMutation = useLikeMutation();
 
@@ -157,7 +139,14 @@ function PostContent({
         <div className={styles.engagement}>
           <Button
             className={clsx(styles.engagementButton, styles.likeButton)}
-            disabled={true}
+            disabled={likeMutation.isPending}
+            onClick={() => {
+              handleLikeButtonClick(
+                isPostLikedByCurrentUser
+                  ? USER_ACTION.UNLIKE_POST
+                  : USER_ACTION.LIKE_POST,
+              );
+            }}
           >
             <Image
               className={styles.like}
