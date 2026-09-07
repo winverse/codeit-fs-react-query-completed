@@ -38,8 +38,6 @@ function getQueryClient() {
   return browserQueryClient;
 }
 
-// 위 패턴은 TanStack Query 공식 문서의 App Router 권장 구성입니다.
-
 export default function AppProviders({ children }) {
   // 3. 앱 전역에서 공유할 QueryClient 인스턴스를 가져옵니다.
   const queryClient = getQueryClient();
