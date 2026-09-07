@@ -105,7 +105,9 @@ export async function addComment(postId, newComment) {
 
 // 9. 좋아요 관련 함수를 준비합니다.
 export async function getLikeCountByPostId(postId, signal) {
-  const response = await fetch(`${BASE_URL}/posts/${postId}/likes`, { signal });
+  const response = await fetch(`${BASE_URL}/posts/${postId}/likes`, {
+    signal,
+  });
 
   if (!response.ok) {
     throw new Error('Failed to fetch like count.');
