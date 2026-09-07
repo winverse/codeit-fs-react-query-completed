@@ -31,10 +31,13 @@ function CommentList({ currentUserInfo, postId }) {
       return;
     }
 
-    queryClient.prefetchQuery({
-      queryKey: queryKeys.posts.commentsPage(postId, page + 1),
-      queryFn: () => getCommentsByPostId(postId, page + 1, COMMENTS_PAGE_LIMIT),
-    });
+    queryClient
+      .query({
+        queryKey: queryKeys.posts.commentsPage(postId, page + 1),
+        queryFn: () =>
+          getCommentsByPostId(postId, page + 1, COMMENTS_PAGE_LIMIT),
+      })
+      .catch(() => {});
   }, [commentsData?.hasMore, queryClient, postId, page]);
 
   const comments = commentsData.results;
