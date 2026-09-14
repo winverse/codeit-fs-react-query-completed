@@ -12,7 +12,7 @@ import { Loading } from '@/components/Loading';
 import { ContentInfo } from '@/domains/feed/ContentInfo';
 import { Button } from '@/components/Button';
 import { CommentList } from '@/domains/feed/CommentList';
-import { USER_ACTION } from '@/lib/constants';
+import { USER_ACTION, USER_INFO_STALE_TIME_MS } from '@/lib/constants';
 import { queryKeys } from '@/lib/queryKeys';
 import {
   getCommentCountByPostId,
@@ -41,6 +41,7 @@ function PostWithUser({ post, currentUsername }) {
   const { data: currentUserInfo } = useSuspenseQuery({
     queryKey: queryKeys.user.info(currentUsername),
     queryFn: () => getUserInfo(currentUsername),
+    staleTime: USER_INFO_STALE_TIME_MS,
   });
 
   const {
