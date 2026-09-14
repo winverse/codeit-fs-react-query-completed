@@ -102,7 +102,7 @@ function CommentList({ currentUserInfo, postId }) {
       <CommentForm
         currentUserInfo={currentUserInfo}
         onSubmit={handleAddComment}
-        buttonDisabled={!currentUserInfo}
+        buttonDisabled={addCommentMutation.isPending}
       />
     </div>
   );
