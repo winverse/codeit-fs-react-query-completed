@@ -1,7 +1,7 @@
 "use client";
 
 import { useSuspenseQuery } from "@tanstack/react-query";
-import { TextInputForm } from "@/domains/feed/TextInputForm";
+import { TextInputForm } from "@/features/feed/TextInputForm";
 import { useLoginContext } from "@/contexts/LoginContext";
 import { queryKeys } from "@/lib/queryKeys";
 import { getUserInfo } from "@/lib/api";

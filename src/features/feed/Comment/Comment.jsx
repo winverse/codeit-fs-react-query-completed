@@ -1,6 +1,6 @@
 "use client";
 
-import { ContentInfo } from "@/domains/feed/ContentInfo";
+import { ContentInfo } from "@/features/feed/ContentInfo";
 import * as styles from "./Comment.css.js";
 
 function Comment({ comment }) {

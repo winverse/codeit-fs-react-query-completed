@@ -9,9 +9,9 @@ import { toast } from "react-toastify";
 import { Card } from "@/components/Card";
 import { QueryBoundary } from "@/components/QueryBoundary";
 import { Loading } from "@/components/Loading";
-import { ContentInfo } from "@/domains/feed/ContentInfo";
+import { ContentInfo } from "@/features/feed/ContentInfo";
 import { Button } from "@/components/Button";
-import { CommentList } from "@/domains/feed/CommentList";
+import { CommentList } from "@/features/feed/CommentList";
 import { USER_ACTION, USER_INFO_STALE_TIME_MS } from "@/lib/constants";
 import { queryKeys } from "@/lib/queryKeys";
 import {
@@ -21,7 +21,7 @@ import {
   getLikeCountByPostId,
 } from "@/lib/api";
 import { useLoginContext } from "@/contexts/LoginContext";
-import { useLikeMutation } from "@/domains/feed/hooks/useLikeMutation";
+import { useLikeMutation } from "@/features/feed/hooks/useLikeMutation";
 import * as styles from "./Post.css.js";
 
 const yellowHeartImage = "/assets/yellow-heart.png";

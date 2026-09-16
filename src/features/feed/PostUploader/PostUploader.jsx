@@ -3,7 +3,7 @@
 import { toast } from "react-toastify";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { uploadPost } from "@/lib/api";
-import { PostForm } from "@/domains/feed/PostForm";
+import { PostForm } from "@/features/feed/PostForm";
 import { useLoginContext } from "@/contexts/LoginContext";
 import { queryKeys } from "@/lib/queryKeys";
 

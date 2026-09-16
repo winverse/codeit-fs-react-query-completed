@@ -2,7 +2,7 @@
 
 import { Container } from "@/components/Container";
 import { QueryBoundary } from "@/components/QueryBoundary";
-import { PostList } from "@/domains/feed/PostList";
+import { PostList } from "@/features/feed/PostList";
 import { FEED_VARIANT } from "@/lib/constants";
 import * as styles from "./HomePage.css.js";
 

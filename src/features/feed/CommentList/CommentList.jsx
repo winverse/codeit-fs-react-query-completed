@@ -7,8 +7,8 @@ import {
   useSuspenseQuery,
 } from "@tanstack/react-query";
 import { Button } from "@/components/Button";
-import { Comment } from "@/domains/feed/Comment";
-import { CommentForm } from "@/domains/feed/CommentForm";
+import { Comment } from "@/features/feed/Comment";
+import { CommentForm } from "@/features/feed/CommentForm";
 import { addComment, getCommentsByPostId } from "@/lib/api";
 import { COMMENTS_PAGE_LIMIT } from "@/lib/constants";
 import { queryKeys } from "@/lib/queryKeys";

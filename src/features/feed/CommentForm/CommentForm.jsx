@@ -1,6 +1,6 @@
 "use client";
 
-import { TextInputForm } from "@/domains/feed/TextInputForm";
+import { TextInputForm } from "@/features/feed/TextInputForm";
 import * as styles from "./CommentForm.css.js";
 
 function CommentForm({ currentUserInfo, onSubmit, buttonDisabled }) {

@@ -1,10 +1,10 @@
 "use client";
 
-import { Post } from "@/domains/feed/Post";
+import { Post } from "@/features/feed/Post";
 import { FEED_VARIANT } from "@/lib/constants";
 import { Button } from "@/components/Button";
 import { useLoginContext } from "@/contexts/LoginContext";
-import usePostListQuery from "@/domains/feed/hooks/usePostListQuery";
+import usePostListQuery from "@/features/feed/hooks/usePostListQuery";
 import * as styles from "./PostList.css.js";
 
 function PostList({ variant = FEED_VARIANT.HOME_FEED }) {

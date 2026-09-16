@@ -1,12 +1,12 @@
 "use client";
 
 import { QueryBoundary } from "@/components/QueryBoundary";
-import { PostList } from "@/domains/feed/PostList";
-import { PostUploader } from "@/domains/feed/PostUploader";
+import { PostList } from "@/features/feed/PostList";
+import { PostUploader } from "@/features/feed/PostUploader";
 import { Container } from "@/components/Container";
 import { FEED_VARIANT } from "@/lib/constants";
 import { useLoginContext } from "@/contexts/LoginContext";
-import { NotLoggedInPage } from "@/domains/not-logged-in/NotLoggedInPage";
+import { NotLoggedInPage } from "@/features/not-logged-in/NotLoggedInPage";
 import * as styles from "./MyFeedPage.css.js";
 
 function MyFeedPage() {

@@ -1,6 +1,6 @@
 "use client";
 
-import { UserInfo } from "@/domains/feed/UserInfo";
+import { UserInfo } from "@/features/feed/UserInfo";
 import * as styles from "./ContentInfo.css.js";
 
 function formateDate(timestamp) {

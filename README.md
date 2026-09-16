@@ -20,10 +20,10 @@ pnpm dev
 | 쿼리 키 팩토리         | `src/lib/queryKeys.js`                           |
 | API 함수               | `src/lib/api.js`                                 |
 | Provider와 캐시 기본값 | `src/providers/AppProviders.jsx`                 |
-| 목록 무한 조회         | `src/domains/feed/hooks/usePostListQuery.js`     |
+| 목록 무한 조회         | `src/features/feed/hooks/usePostListQuery.js`    |
 | 조회 경계              | `src/components/QueryBoundary/QueryBoundary.jsx` |
-| 댓글 페이지네이션      | `src/domains/feed/CommentList/CommentList.jsx`   |
-| 좋아요 낙관적 업데이트 | `src/domains/feed/hooks/useLikeMutation.js`      |
+| 댓글 페이지네이션      | `src/features/feed/CommentList/CommentList.jsx`  |
+| 좋아요 낙관적 업데이트 | `src/features/feed/hooks/useLikeMutation.js`     |
 
 ## 참고
 
