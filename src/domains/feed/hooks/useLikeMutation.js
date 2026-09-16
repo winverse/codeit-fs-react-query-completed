@@ -1,8 +1,8 @@
-import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { toast } from 'react-toastify';
-import { USER_ACTION } from '@/lib/constants';
-import { queryKeys } from '@/lib/queryKeys';
-import { likePost, unlikePost } from '@/lib/api';
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { toast } from "react-toastify";
+import { USER_ACTION } from "@/lib/constants";
+import { queryKeys } from "@/lib/queryKeys";
+import { likePost, unlikePost } from "@/lib/api";
 
 export function useLikeMutation() {
   const queryClient = useQueryClient();
@@ -78,7 +78,7 @@ export function useLikeMutation() {
           onMutateResult.previousLikeCount,
         );
       }
-      toast('좋아요 처리에 실패했습니다.');
+      toast("좋아요 처리에 실패했습니다.");
     },
 
     // 4단계: onSettled

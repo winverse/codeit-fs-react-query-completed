@@ -1,1 +1,1 @@
-export { default as ContentInfo } from './ContentInfo';
+export { default as ContentInfo } from "./ContentInfo";

@@ -1,5 +1,5 @@
-import { style } from '@vanilla-extract/css';
+import { style } from "@vanilla-extract/css";
 
 export const container = style({
-  marginBottom: '100px',
+  marginBottom: "100px",
 });

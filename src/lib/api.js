@@ -1,9 +1,9 @@
-import { POSTS_PAGE_LIMIT } from './constants';
+import { POSTS_PAGE_LIMIT } from "./constants";
 
 // 1. API 기본 URL을 정합니다.
 const BASE_URL =
   process.env.NEXT_PUBLIC_API_BASE_URL ??
-  'https://learn.codeit.kr/api/codestudit';
+  "https://learn.codeit.kr/api/codestudit";
 
 // 2. 포스트 목록 조회 함수를 만듭니다.
 // Codestudit API의 페이지 기준은 0부터 시작합니다.
@@ -11,7 +11,7 @@ export async function getPosts(page = 0, limit = POSTS_PAGE_LIMIT) {
   const response = await fetch(`${BASE_URL}/posts?page=${page}&limit=${limit}`);
 
   if (!response.ok) {
-    throw new Error('Failed to fetch posts.');
+    throw new Error("Failed to fetch posts.");
   }
 
   return await response.json();
@@ -28,7 +28,7 @@ export async function getPostsByUsername(
   );
 
   if (!response.ok) {
-    throw new Error('Failed to fetch posts by username.');
+    throw new Error("Failed to fetch posts by username.");
   }
 
   return await response.json();
@@ -37,15 +37,15 @@ export async function getPostsByUsername(
 // 4. 포스트 업로드 함수를 만듭니다.
 export async function uploadPost(newPost) {
   const response = await fetch(`${BASE_URL}/posts`, {
-    method: 'POST',
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
     },
     body: JSON.stringify(newPost),
   });
 
   if (!response.ok) {
-    throw new Error('Failed to upload the post.');
+    throw new Error("Failed to upload the post.");
   }
 
   return await response.json();
@@ -56,7 +56,7 @@ export async function getUserInfo(username) {
   const response = await fetch(`${BASE_URL}/users/${username}`);
 
   if (!response.ok) {
-    throw new Error('Failed to fetch user info.');
+    throw new Error("Failed to fetch user info.");
   }
 
   return await response.json();
@@ -67,7 +67,7 @@ export async function getCommentCountByPostId(postId) {
   const response = await fetch(`${BASE_URL}/posts/${postId}/comments`);
 
   if (!response.ok) {
-    throw new Error('Failed to fetch comment count.');
+    throw new Error("Failed to fetch comment count.");
   }
 
   const body = await response.json();
@@ -81,7 +81,7 @@ export async function getCommentsByPostId(postId, page = 0, limit) {
   );
 
   if (!response.ok) {
-    throw new Error('Failed to fetch comments.');
+    throw new Error("Failed to fetch comments.");
   }
 
   return await response.json();
@@ -90,15 +90,15 @@ export async function getCommentsByPostId(postId, page = 0, limit) {
 // 8. 댓글 작성 함수를 만듭니다.
 export async function addComment(postId, newComment) {
   const response = await fetch(`${BASE_URL}/posts/${postId}/comments`, {
-    method: 'POST',
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
     },
     body: JSON.stringify(newComment),
   });
 
   if (!response.ok) {
-    throw new Error('Failed to add the comment.');
+    throw new Error("Failed to add the comment.");
   }
   return await response.json();
 }
@@ -110,7 +110,7 @@ export async function getLikeCountByPostId(postId, signal) {
   });
 
   if (!response.ok) {
-    throw new Error('Failed to fetch like count.');
+    throw new Error("Failed to fetch like count.");
   }
 
   const body = await response.json();
@@ -129,7 +129,7 @@ export async function getLikeStatusByUsername(postId, username, signal) {
   if (response.status === 404) {
     return false;
   }
-  throw new Error('Failed to get like status of the post.');
+  throw new Error("Failed to get like status of the post.");
 }
 
 // 11. 좋아요 추가 함수를 만듭니다.
@@ -137,12 +137,12 @@ export async function likePost(postId, username) {
   const response = await fetch(
     `${BASE_URL}/posts/${postId}/likes/${username}`,
     {
-      method: 'POST',
+      method: "POST",
     },
   );
 
   if (!response.ok) {
-    throw new Error('Failed to like the post.');
+    throw new Error("Failed to like the post.");
   }
 }
 
@@ -151,11 +151,11 @@ export async function unlikePost(postId, username) {
   const response = await fetch(
     `${BASE_URL}/posts/${postId}/likes/${username}`,
     {
-      method: 'DELETE',
+      method: "DELETE",
     },
   );
 
   if (!response.ok) {
-    throw new Error('Failed to unlike the post.');
+    throw new Error("Failed to unlike the post.");
   }
 }

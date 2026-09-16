@@ -1,18 +1,18 @@
-'use client';
+"use client";
 
-import { useEffect, useState, useTransition } from 'react';
+import { useEffect, useState, useTransition } from "react";
 import {
   useMutation,
   useQueryClient,
   useSuspenseQuery,
-} from '@tanstack/react-query';
-import { Button } from '@/components/Button';
-import { Comment } from '@/domains/feed/Comment';
-import { CommentForm } from '@/domains/feed/CommentForm';
-import { addComment, getCommentsByPostId } from '@/lib/api';
-import { COMMENTS_PAGE_LIMIT } from '@/lib/constants';
-import { queryKeys } from '@/lib/queryKeys';
-import * as styles from './CommentList.css.js';
+} from "@tanstack/react-query";
+import { Button } from "@/components/Button";
+import { Comment } from "@/domains/feed/Comment";
+import { CommentForm } from "@/domains/feed/CommentForm";
+import { addComment, getCommentsByPostId } from "@/lib/api";
+import { COMMENTS_PAGE_LIMIT } from "@/lib/constants";
+import { queryKeys } from "@/lib/queryKeys";
+import * as styles from "./CommentList.css.js";
 
 function CommentList({ currentUserInfo, postId }) {
   const [page, setPage] = useState(0);

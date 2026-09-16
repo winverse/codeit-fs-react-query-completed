@@ -1,16 +1,16 @@
-'use client';
+"use client";
 
-import clsx from 'clsx';
-import Image from 'next/image';
-import * as styles from './Warn.css.js';
+import clsx from "clsx";
+import Image from "next/image";
+import * as styles from "./Warn.css.js";
 
-const warnIcon = '/assets/warn.svg';
+const warnIcon = "/assets/warn.svg";
 
-function Warn({ className, variant = '', title = '', description = '' }) {
-  const variantClass = variant === 'big' ? styles.big : undefined;
-  const titleClass = variant === 'big' ? styles.titleBig : undefined;
+function Warn({ className, variant = "", title = "", description = "" }) {
+  const variantClass = variant === "big" ? styles.big : undefined;
+  const titleClass = variant === "big" ? styles.titleBig : undefined;
   const descriptionClass =
-    variant === 'big' ? styles.descriptionBig : undefined;
+    variant === "big" ? styles.descriptionBig : undefined;
 
   return (
     <div className={clsx(styles.warn, variantClass, className)}>

@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { ProfilePhoto } from '@/components/ProfilePhoto';
-import { Button } from '@/components/Button';
-import * as styles from './TextInputForm.css.js';
+import { useState } from "react";
+import { ProfilePhoto } from "@/components/ProfilePhoto";
+import { Button } from "@/components/Button";
+import * as styles from "./TextInputForm.css.js";
 
 function TextInputForm({
   onSubmit,
@@ -12,7 +12,7 @@ function TextInputForm({
   buttonText,
   buttonDisabled,
 }) {
-  const [content, setContent] = useState('');
+  const [content, setContent] = useState("");
 
   const handleInputChange = (e) => {
     setContent(e.target.value);
@@ -22,7 +22,7 @@ function TextInputForm({
     e.preventDefault();
     if (!currentUserInfo) return;
     onSubmit(content);
-    setContent('');
+    setContent("");
   };
 
   return (

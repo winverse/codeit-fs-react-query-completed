@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { UserInfo } from '@/domains/feed/UserInfo';
-import * as styles from './ContentInfo.css.js';
+import { UserInfo } from "@/domains/feed/UserInfo";
+import * as styles from "./ContentInfo.css.js";
 
 function formateDate(timestamp) {
   const fullDate = new Date(timestamp);
@@ -10,8 +10,8 @@ function formateDate(timestamp) {
   const year = fullDate.getFullYear();
   let hours = fullDate.getHours();
   let minutes = fullDate.getMinutes();
-  hours = hours < 10 ? '0' + hours : hours;
-  minutes = minutes < 10 ? '0' + minutes : minutes;
+  hours = hours < 10 ? "0" + hours : hours;
+  minutes = minutes < 10 ? "0" + minutes : minutes;
 
   return `${year}-${month}-${date} ${hours}:${minutes}`;
 }

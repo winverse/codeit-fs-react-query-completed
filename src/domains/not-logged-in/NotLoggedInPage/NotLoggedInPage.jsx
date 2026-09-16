@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { Button } from '@/components/Button';
-import { Container } from '@/components/Container';
-import { Warn } from '@/components/Warn';
-import * as styles from './NotLoggedInPage.css.js';
+import Link from "next/link";
+import { Button } from "@/components/Button";
+import { Container } from "@/components/Container";
+import { Warn } from "@/components/Warn";
+import * as styles from "./NotLoggedInPage.css.js";
 
 function NotLoggedInPage() {
   return (

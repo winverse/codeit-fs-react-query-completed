@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import clsx from 'clsx';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { Container } from '@/components/Container';
-import { UserMenu } from '@/components/UserMenu';
-import * as styles from './Navigation.css.js';
+import clsx from "clsx";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Container } from "@/components/Container";
+import { UserMenu } from "@/components/UserMenu";
+import * as styles from "./Navigation.css.js";
 
 function Navigation() {
   const pathname = usePathname();
@@ -22,7 +22,7 @@ function Navigation() {
               href="/"
               className={clsx(
                 styles.menuLink,
-                isActive('/') && styles.activeLink,
+                isActive("/") && styles.activeLink,
               )}
             >
               홈
@@ -33,7 +33,7 @@ function Navigation() {
               href="/my-feed"
               className={clsx(
                 styles.menuLink,
-                isActive('/my-feed') && styles.activeLink,
+                isActive("/my-feed") && styles.activeLink,
               )}
             >
               내 피드

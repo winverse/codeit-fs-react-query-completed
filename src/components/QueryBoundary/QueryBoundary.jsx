@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import { Suspense } from 'react';
-import { ErrorBoundary } from 'react-error-boundary';
-import { QueryErrorResetBoundary } from '@tanstack/react-query';
-import { Button } from '@/components/Button';
-import { Loading } from '@/components/Loading';
-import { Warn } from '@/components/Warn';
-import * as styles from './QueryBoundary.css.js';
+import { Suspense } from "react";
+import { ErrorBoundary } from "react-error-boundary";
+import { QueryErrorResetBoundary } from "@tanstack/react-query";
+import { Button } from "@/components/Button";
+import { Loading } from "@/components/Loading";
+import { Warn } from "@/components/Warn";
+import * as styles from "./QueryBoundary.css.js";
 
 function DefaultErrorFallback({ title, description, onRetry }) {
   return (
@@ -22,8 +22,8 @@ function DefaultErrorFallback({ title, description, onRetry }) {
 function QueryBoundary({
   children,
   pendingFallback,
-  errorTitle = '문제가 발생했습니다.',
-  errorDescription = '잠시 후 다시 시도해 주세요.',
+  errorTitle = "문제가 발생했습니다.",
+  errorDescription = "잠시 후 다시 시도해 주세요.",
 }) {
   return (
     <QueryErrorResetBoundary>

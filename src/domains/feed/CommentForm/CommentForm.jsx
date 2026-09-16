@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { TextInputForm } from '@/domains/feed/TextInputForm';
-import * as styles from './CommentForm.css.js';
+import { TextInputForm } from "@/domains/feed/TextInputForm";
+import * as styles from "./CommentForm.css.js";
 
 function CommentForm({ currentUserInfo, onSubmit, buttonDisabled }) {
   const handleSubmit = async (content) => {

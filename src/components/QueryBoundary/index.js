@@ -1,1 +1,1 @@
-export { default as QueryBoundary } from './QueryBoundary';
+export { default as QueryBoundary } from "./QueryBoundary";

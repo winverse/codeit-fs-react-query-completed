@@ -1,8 +1,8 @@
-import { style } from '@vanilla-extract/css';
+import { style } from "@vanilla-extract/css";
 
 export const card = style({
-  overflow: 'hidden',
-  backgroundColor: '#fff',
-  borderRadius: '5px',
-  boxShadow: 'var(--box-shadow)',
+  overflow: "hidden",
+  backgroundColor: "#fff",
+  borderRadius: "5px",
+  boxShadow: "var(--box-shadow)",
 });

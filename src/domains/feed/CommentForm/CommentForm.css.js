@@ -1,5 +1,5 @@
-import { style } from '@vanilla-extract/css';
+import { style } from "@vanilla-extract/css";
 
 export const commentForm = style({
-  marginTop: '20px',
+  marginTop: "20px",
 });

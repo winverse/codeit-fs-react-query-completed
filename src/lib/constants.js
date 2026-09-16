@@ -1,9 +1,9 @@
 export const FEED_VARIANT = {
-  HOME_FEED: 'HomeFeed',
-  MY_FEED: 'MyFeed',
+  HOME_FEED: "HomeFeed",
+  MY_FEED: "MyFeed",
 };
 
-export const USERNAMES = ['codeit', 'react', 'query'];
+export const USERNAMES = ["codeit", "react", "query"];
 
 const SECOND_MS = 1000;
 const MINUTE_MS = 60 * SECOND_MS;
@@ -15,6 +15,6 @@ export const COMMENTS_PAGE_LIMIT = 3;
 export const POSTS_PAGE_LIMIT = 3;
 
 export const USER_ACTION = {
-  LIKE_POST: 'likePost',
-  UNLIKE_POST: 'unlikePost',
+  LIKE_POST: "likePost",
+  UNLIKE_POST: "unlikePost",
 };

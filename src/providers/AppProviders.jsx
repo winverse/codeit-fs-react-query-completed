@@ -1,14 +1,14 @@
-'use client';
+"use client";
 
 import {
   environmentManager,
   QueryClient,
   QueryClientProvider,
-} from '@tanstack/react-query';
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
-import { ToastContainer } from 'react-toastify';
-import { LoginProvider } from '@/contexts/LoginContext';
-import 'react-toastify/dist/ReactToastify.css';
+} from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { ToastContainer } from "react-toastify";
+import { LoginProvider } from "@/contexts/LoginContext";
+import "react-toastify/dist/ReactToastify.css";
 
 const ONE_MINUTE_MS = 60_000;
 const TOAST_AUTO_CLOSE_MS = 2_000;

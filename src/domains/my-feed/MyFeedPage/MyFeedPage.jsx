@@ -1,13 +1,13 @@
-'use client';
+"use client";
 
-import { QueryBoundary } from '@/components/QueryBoundary';
-import { PostList } from '@/domains/feed/PostList';
-import { PostUploader } from '@/domains/feed/PostUploader';
-import { Container } from '@/components/Container';
-import { FEED_VARIANT } from '@/lib/constants';
-import { useLoginContext } from '@/contexts/LoginContext';
-import { NotLoggedInPage } from '@/domains/not-logged-in/NotLoggedInPage';
-import * as styles from './MyFeedPage.css.js';
+import { QueryBoundary } from "@/components/QueryBoundary";
+import { PostList } from "@/domains/feed/PostList";
+import { PostUploader } from "@/domains/feed/PostUploader";
+import { Container } from "@/components/Container";
+import { FEED_VARIANT } from "@/lib/constants";
+import { useLoginContext } from "@/contexts/LoginContext";
+import { NotLoggedInPage } from "@/domains/not-logged-in/NotLoggedInPage";
+import * as styles from "./MyFeedPage.css.js";
 
 function MyFeedPage() {
   const { currentUsername } = useLoginContext();

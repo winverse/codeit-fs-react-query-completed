@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import { toast } from 'react-toastify';
-import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { uploadPost } from '@/lib/api';
-import { PostForm } from '@/domains/feed/PostForm';
-import { useLoginContext } from '@/contexts/LoginContext';
-import { queryKeys } from '@/lib/queryKeys';
+import { toast } from "react-toastify";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { uploadPost } from "@/lib/api";
+import { PostForm } from "@/domains/feed/PostForm";
+import { useLoginContext } from "@/contexts/LoginContext";
+import { queryKeys } from "@/lib/queryKeys";
 
 function PostUploader() {
   const { currentUsername } = useLoginContext();
@@ -33,7 +33,7 @@ function PostUploader() {
   const handleUploadPost = (newPost) => {
     uploadPostMutation.mutate(newPost, {
       onSuccess: () => {
-        toast('포스트가 성공적으로 업로드 되었습니다!');
+        toast("포스트가 성공적으로 업로드 되었습니다!");
       },
     });
   };

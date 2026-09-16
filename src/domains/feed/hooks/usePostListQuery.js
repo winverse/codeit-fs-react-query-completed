@@ -1,7 +1,7 @@
-import { useSuspenseInfiniteQuery } from '@tanstack/react-query';
-import { getPosts, getPostsByUsername } from '@/lib/api';
-import { FEED_VARIANT, POSTS_PAGE_LIMIT } from '@/lib/constants';
-import { queryKeys } from '@/lib/queryKeys';
+import { useSuspenseInfiniteQuery } from "@tanstack/react-query";
+import { getPosts, getPostsByUsername } from "@/lib/api";
+import { FEED_VARIANT, POSTS_PAGE_LIMIT } from "@/lib/constants";
+import { queryKeys } from "@/lib/queryKeys";
 
 const usePostListQuery = ({ variant, currentUsername }) => {
   const isMyFeed = variant === FEED_VARIANT.MY_FEED;

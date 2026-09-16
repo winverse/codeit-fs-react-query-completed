@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import { useSuspenseQuery } from '@tanstack/react-query';
-import { TextInputForm } from '@/domains/feed/TextInputForm';
-import { useLoginContext } from '@/contexts/LoginContext';
-import { queryKeys } from '@/lib/queryKeys';
-import { getUserInfo } from '@/lib/api';
-import { USER_INFO_STALE_TIME_MS } from '@/lib/constants';
-import * as styles from './PostForm.css.js';
+import { useSuspenseQuery } from "@tanstack/react-query";
+import { TextInputForm } from "@/domains/feed/TextInputForm";
+import { useLoginContext } from "@/contexts/LoginContext";
+import { queryKeys } from "@/lib/queryKeys";
+import { getUserInfo } from "@/lib/api";
+import { USER_INFO_STALE_TIME_MS } from "@/lib/constants";
+import * as styles from "./PostForm.css.js";
 
 function PostForm({ onSubmit, buttonDisabled }) {
   const { currentUsername } = useLoginContext();

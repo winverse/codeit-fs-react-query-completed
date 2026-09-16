@@ -1,6 +1,6 @@
-import { style } from '@vanilla-extract/css';
+import { style } from "@vanilla-extract/css";
 
 export const main = style({
-  position: 'relative',
+  position: "relative",
   flexGrow: 1,
 });

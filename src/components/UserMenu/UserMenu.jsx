@@ -1,17 +1,17 @@
-'use client';
+"use client";
 
-import { Suspense, useCallback, useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { useSuspenseQuery } from '@tanstack/react-query';
-import { getUserInfo } from '@/lib/api';
-import { ProfilePhoto } from '@/components/ProfilePhoto';
-import useClickOutside from '@/hooks/useClickOutside';
-import { USERNAMES, USER_INFO_STALE_TIME_MS } from '@/lib/constants';
-import { queryKeys } from '@/lib/queryKeys';
-import { useLoginContext } from '@/contexts/LoginContext';
-import * as styles from './UserMenu.css.js';
+import { Suspense, useCallback, useState } from "react";
+import { useRouter } from "next/navigation";
+import { useSuspenseQuery } from "@tanstack/react-query";
+import { getUserInfo } from "@/lib/api";
+import { ProfilePhoto } from "@/components/ProfilePhoto";
+import useClickOutside from "@/hooks/useClickOutside";
+import { USERNAMES, USER_INFO_STALE_TIME_MS } from "@/lib/constants";
+import { queryKeys } from "@/lib/queryKeys";
+import { useLoginContext } from "@/contexts/LoginContext";
+import * as styles from "./UserMenu.css.js";
 
-const anonymousUserIcon = '/assets/person.png';
+const anonymousUserIcon = "/assets/person.png";
 
 // 1. UserMenuButtonContent 컴포넌트를 만들어 버튼 내용을 분리합니다.
 function UserMenuButtonContent({ photo, name }) {
@@ -61,12 +61,12 @@ function UserMenu() {
 
   const handleLoginClick = (username) => {
     setCurrentUsername(username);
-    router.push('/');
+    router.push("/");
   };
 
   const handleLogoutClick = () => {
     setCurrentUsername(undefined);
-    router.push('/');
+    router.push("/");
   };
 
   return (

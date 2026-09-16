@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState } from "react";
 
 // 1. 로그인 상태를 공유할 컨텍스트를 만듭니다.
 export const LoginContext = createContext(null);
@@ -10,7 +10,7 @@ export function useLoginContext() {
   const context = useContext(LoginContext);
 
   if (!context) {
-    throw new Error('useLoginContext must be used within LoginProvider');
+    throw new Error("useLoginContext must be used within LoginProvider");
   }
 
   return context;

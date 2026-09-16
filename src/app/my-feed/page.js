@@ -1,4 +1,4 @@
-import { MyFeedPage } from '@/domains/my-feed/MyFeedPage';
+import { MyFeedPage } from "@/domains/my-feed/MyFeedPage";
 
 export default function MyFeed() {
   return <MyFeedPage />;

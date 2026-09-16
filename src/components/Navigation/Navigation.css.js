@@ -1,44 +1,44 @@
-import { style } from '@vanilla-extract/css';
+import { style } from "@vanilla-extract/css";
 
 export const nav = style({
-  position: 'relative',
+  position: "relative",
   zIndex: 1,
-  padding: '15px 0',
-  backgroundColor: '#fff',
-  boxShadow: 'var(--box-shadow)',
+  padding: "15px 0",
+  backgroundColor: "#fff",
+  boxShadow: "var(--box-shadow)",
 });
 
 export const container = style({
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'space-between',
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "space-between",
 });
 
 export const menu = style({
-  display: 'flex',
-  alignItems: 'center',
+  display: "flex",
+  alignItems: "center",
   padding: 0,
   margin: 0,
-  listStyle: 'none',
+  listStyle: "none",
 });
 
 export const menuItem = style({
   selectors: {
-    '&:not(:last-child)': {
-      marginRight: '30px',
+    "&:not(:last-child)": {
+      marginRight: "30px",
     },
   },
 });
 
 export const menuLink = style({
   selectors: {
-    '&:hover, &:active': {
-      textDecoration: 'underline',
+    "&:hover, &:active": {
+      textDecoration: "underline",
     },
   },
 });
 
 export const activeLink = style({
-  textDecoration: 'underline',
-  color: '#4cafc8',
+  textDecoration: "underline",
+  color: "#4cafc8",
 });
