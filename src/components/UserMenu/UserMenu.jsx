@@ -1,6 +1,6 @@
 "use client";
 
-import { Suspense, useCallback, useState } from "react";
+import { Suspense, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { getUserInfo } from "@/lib/api";
@@ -44,9 +44,9 @@ function UserMenu() {
   const { currentUsername, setCurrentUsername } = useLoginContext();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const handleCloseMenu = useCallback(() => {
+  const handleCloseMenu = () => {
     setIsMenuOpen(false);
-  }, [setIsMenuOpen]);
+  };
 
   // 메뉴가 열린 상태에서 바깥 클릭을 감지해 닫습니다.
   useClickOutside({
