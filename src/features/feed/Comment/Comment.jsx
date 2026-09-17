@@ -1,5 +1,3 @@
-"use client";
-
 import { ContentInfo } from "@/features/feed/ContentInfo";
 import * as styles from "./Comment.css.js";
 

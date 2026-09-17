@@ -1,5 +1,3 @@
-"use client";
-
 import clsx from "clsx";
 import * as styles from "./Button.css.js";
 

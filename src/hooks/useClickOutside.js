@@ -1,10 +1,10 @@
-"use client";
-
 import { useEffect } from "react";
 
 function useClickOutside({ isActive, onOutsideClick }) {
   useEffect(() => {
-    if (!isActive) return;
+    if (!isActive) {
+      return;
+    }
 
     const handleClick = () => {
       onOutsideClick();

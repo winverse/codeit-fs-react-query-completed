@@ -20,7 +20,9 @@ function TextInputForm({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!currentUserInfo) return;
+    if (!currentUserInfo) {
+      return;
+    }
     onSubmit(content);
     setContent("");
   };

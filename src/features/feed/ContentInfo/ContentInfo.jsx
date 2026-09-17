@@ -1,9 +1,7 @@
-"use client";
-
 import { UserInfo } from "@/features/feed/UserInfo";
 import * as styles from "./ContentInfo.css.js";
 
-function formateDate(timestamp) {
+function formatDate(timestamp) {
   const fullDate = new Date(timestamp);
   const date = fullDate.getDate();
   const month = fullDate.getMonth() + 1;
@@ -20,7 +18,7 @@ function ContentInfo({ user, updatedTime }) {
   return (
     <div className={styles.info}>
       <UserInfo name={user.name} photo={user.photo} />
-      <div className={styles.date}>{formateDate(updatedTime)}</div>
+      <div className={styles.date}>{formatDate(updatedTime)}</div>
     </div>
   );
 }

@@ -4,11 +4,13 @@ import { TextInputForm } from "@/features/feed/TextInputForm";
 import * as styles from "./CommentForm.css.js";
 
 function CommentForm({ currentUserInfo, onSubmit, buttonDisabled }) {
-  const handleSubmit = async (content) => {
-    if (!currentUserInfo) return;
+  const handleSubmit = (content) => {
+    if (!currentUserInfo) {
+      return;
+    }
     const newComment = {
       username: currentUserInfo.username,
-      content: content,
+      content,
     };
 
     onSubmit(newComment);

@@ -1,12 +1,10 @@
-"use client";
-
 import Image from "next/image";
 import * as styles from "./ProfilePhoto.css.js";
 
-const fallbackPhoto = "/assets/person.png";
+const FALLBACK_PHOTO = "/assets/person.png";
 
 function ProfilePhoto({ photo, name }) {
-  const src = photo || fallbackPhoto;
+  const src = photo || FALLBACK_PHOTO;
   const alt = name || "프로필";
 
   return (

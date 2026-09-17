@@ -19,12 +19,9 @@ function PostForm({ onSubmit, buttonDisabled }) {
 
   // 2. 제출 시 newPost를 구성해 업로드 흐름으로 넘깁니다.
   const handleSubmit = (content) => {
-    if (!currentUserInfo || currentUserInfo.username !== currentUsername) {
-      return;
-    }
     const newPost = {
       username: currentUserInfo.username,
-      content: content,
+      content,
     };
 
     onSubmit(newPost);

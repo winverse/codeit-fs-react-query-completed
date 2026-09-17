@@ -3,7 +3,7 @@ import { getPosts, getPostsByUsername } from "@/lib/api";
 import { FEED_VARIANT, POSTS_PAGE_LIMIT } from "@/lib/constants";
 import { queryKeys } from "@/lib/queryKeys";
 
-const usePostListQuery = ({ variant, currentUsername }) => {
+function usePostListQuery({ variant, currentUsername }) {
   const isMyFeed = variant === FEED_VARIANT.MY_FEED;
 
   // 1. 피드 종류에 맞는 캐시 키와 API 함수를 선택합니다.
@@ -32,6 +32,6 @@ const usePostListQuery = ({ variant, currentUsername }) => {
     isFetching,
     isFetchingNextPage,
   };
-};
+}
 
 export default usePostListQuery;

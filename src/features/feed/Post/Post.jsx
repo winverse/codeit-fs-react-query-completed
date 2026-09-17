@@ -4,8 +4,7 @@ import { useState } from "react";
 import clsx from "clsx";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { useQuery, useSuspenseQuery } from "@tanstack/react-query";
-import { toast } from "react-toastify";
+import { useSuspenseQuery } from "@tanstack/react-query";
 import { Card } from "@/components/Card";
 import { QueryBoundary } from "@/components/QueryBoundary";
 import { Loading } from "@/components/Loading";
@@ -21,11 +20,11 @@ import {
   getLikeCountByPostId,
 } from "@/lib/api";
 import { useLoginContext } from "@/contexts/LoginContext";
-import { useLikeMutation } from "@/features/feed/hooks/useLikeMutation";
+import useLikeMutation from "@/features/feed/hooks/useLikeMutation";
 import * as styles from "./Post.css.js";
 
-const yellowHeartImage = "/assets/yellow-heart.png";
-const greyHeartImage = "/assets/grey-heart.png";
+const YELLOW_HEART_IMAGE = "/assets/yellow-heart.png";
+const GREY_HEART_IMAGE = "/assets/grey-heart.png";
 
 function Post({ post }) {
   const { currentUsername } = useLoginContext();
@@ -44,23 +43,10 @@ function PostWithUser({ post, currentUsername }) {
     staleTime: USER_INFO_STALE_TIME_MS,
   });
 
-  const {
-    data: isPostLikedByCurrentUser,
-    isPending: isLikeStatusPending,
-    error: likeStatusError,
-  } = useQuery({
+  const { data: isPostLikedByCurrentUser } = useSuspenseQuery({
     queryKey: queryKeys.posts.likeStatus(post.id, currentUsername),
-    queryFn: ({ signal }) =>
-      getLikeStatusByUsername(post.id, currentUsername, signal),
+    queryFn: () => getLikeStatusByUsername(post.id, currentUsername),
   });
-
-  if (isLikeStatusPending) {
-    return <Loading description="좋아요 정보를 불러오는 중입니다..." />;
-  }
-
-  if (likeStatusError && isPostLikedByCurrentUser === undefined) {
-    throw likeStatusError;
-  }
 
   return (
     <PostContent
@@ -90,37 +76,23 @@ function PostContent({
     queryFn: () => getCommentCountByPostId(post.id),
   });
 
-  const {
-    data: likeCount,
-    isPending: isLikeCountPending,
-    error: likeCountError,
-  } = useQuery({
+  const { data: likeCount } = useSuspenseQuery({
     queryKey: queryKeys.posts.likeCount(post.id),
-    queryFn: ({ signal }) => getLikeCountByPostId(post.id, signal),
+    queryFn: () => getLikeCountByPostId(post.id),
   });
 
   const likeMutation = useLikeMutation();
-
-  if (isLikeCountPending) {
-    return <Loading description="좋아요 수를 불러오는 중입니다..." />;
-  }
-
-  if (likeCountError && likeCount === undefined) {
-    throw likeCountError;
-  }
 
   const handleCommentButtonClick = () => {
     if (!currentUsername) {
       router.push("/not-logged-in");
       return;
     }
-    setShowCommentList(
-      (previousIsCommentListOpen) => !previousIsCommentListOpen,
-    );
+    setShowCommentList((isShown) => !isShown);
   };
+
   const handleLikeButtonClick = (userAction) => {
     if (!currentUsername) {
-      toast("로그인이 필요합니다.");
       router.push("/not-logged-in");
       return;
     }
@@ -151,23 +123,23 @@ function PostContent({
           >
             <Image
               className={styles.like}
-              src={isPostLikedByCurrentUser ? yellowHeartImage : greyHeartImage}
+              src={
+                isPostLikedByCurrentUser ? YELLOW_HEART_IMAGE : GREY_HEART_IMAGE
+              }
               alt="좋아요"
               width={12}
               height={12}
             />
-            {`좋아요 ${likeCount ?? 0}개`}
+            {`좋아요 ${likeCount}개`}
           </Button>
           <Button
             className={styles.engagementButton}
-            onClick={() => {
-              handleCommentButtonClick(post.id);
-            }}
+            onClick={handleCommentButtonClick}
           >
-            {`댓글 ${commentCount ?? 0}개`}
+            {`댓글 ${commentCount}개`}
           </Button>
         </div>
-        {showCommentList ? (
+        {showCommentList && (
           <QueryBoundary
             pendingFallback={
               <Loading description="댓글을 불러오는 중입니다..." />
@@ -175,8 +147,6 @@ function PostContent({
           >
             <CommentList currentUserInfo={currentUserInfo} postId={post.id} />
           </QueryBoundary>
-        ) : (
-          ""
         )}
       </div>
     </Card>

@@ -1,6 +1,5 @@
 import { Noto_Sans_KR } from "next/font/google";
 import "@/styles/global.css.js";
-import "react-toastify/dist/ReactToastify.css";
 import { GlobalLayout } from "@/components/layouts/GlobalLayout";
 
 const notoSans = Noto_Sans_KR({

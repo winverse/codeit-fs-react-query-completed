@@ -1,5 +1,3 @@
-"use client";
-
 import { Container } from "@/components/Container";
 import { QueryBoundary } from "@/components/QueryBoundary";
 import { PostList } from "@/features/feed/PostList";

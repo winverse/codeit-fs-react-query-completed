@@ -1,5 +1,3 @@
-"use client";
-
 import { ProfilePhoto } from "@/components/ProfilePhoto";
 import * as styles from "./UserInfo.css.js";
 

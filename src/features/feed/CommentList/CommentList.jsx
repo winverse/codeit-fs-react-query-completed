@@ -27,7 +27,7 @@ function CommentList({ currentUserInfo, postId }) {
 
   // 2. 다음 페이지가 있을 때만 미리 가져와 이동 지연을 줄입니다.
   useEffect(() => {
-    if (!commentsData?.hasMore) {
+    if (!commentsData.hasMore) {
       return;
     }
 
@@ -38,7 +38,7 @@ function CommentList({ currentUserInfo, postId }) {
           getCommentsByPostId(postId, page + 1, COMMENTS_PAGE_LIMIT),
       })
       .catch(() => {});
-  }, [commentsData?.hasMore, queryClient, postId, page]);
+  }, [commentsData.hasMore, queryClient, postId, page]);
 
   const comments = commentsData.results;
 
@@ -68,7 +68,7 @@ function CommentList({ currentUserInfo, postId }) {
         disabled={isPagePending || page === 0}
         onClick={() => {
           startPageTransition(() => {
-            setPage((old) => Math.max(old - 1, 0));
+            setPage((currentPage) => Math.max(currentPage - 1, 0));
           });
         }}
         className={styles.paginationButton}
@@ -76,10 +76,10 @@ function CommentList({ currentUserInfo, postId }) {
         &lt;
       </Button>
       <Button
-        disabled={isPagePending || !commentsData?.hasMore}
+        disabled={isPagePending || !commentsData.hasMore}
         onClick={() => {
           startPageTransition(() => {
-            setPage((old) => old + 1);
+            setPage((currentPage) => currentPage + 1);
           });
         }}
         className={styles.paginationButton}

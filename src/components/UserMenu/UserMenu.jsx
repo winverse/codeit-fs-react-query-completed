@@ -11,7 +11,7 @@ import { queryKeys } from "@/lib/queryKeys";
 import { useLoginContext } from "@/contexts/LoginContext";
 import * as styles from "./UserMenu.css.js";
 
-const anonymousUserIcon = "/assets/person.png";
+const ANONYMOUS_USER_ICON = "/assets/person.png";
 
 // 1. UserMenuButtonContent 컴포넌트를 만들어 버튼 내용을 분리합니다.
 function UserMenuButtonContent({ photo, name }) {
@@ -56,7 +56,7 @@ function UserMenu() {
 
   const handleButtonClick = (e) => {
     e.stopPropagation();
-    setIsMenuOpen((nextIsOpen) => !nextIsOpen);
+    setIsMenuOpen((isOpen) => !isOpen);
   };
 
   const handleLoginClick = (username) => {
@@ -76,24 +76,22 @@ function UserMenu() {
         {currentUsername ? (
           <Suspense
             fallback={
-              <UserMenuButtonContent photo={anonymousUserIcon} name="로딩 중" />
+              <UserMenuButtonContent
+                photo={ANONYMOUS_USER_ICON}
+                name="로딩 중"
+              />
             }
           >
             <UserMenuLoggedIn currentUsername={currentUsername} />
           </Suspense>
         ) : (
-          <UserMenuButtonContent photo={anonymousUserIcon} name="로그인" />
+          <UserMenuButtonContent photo={ANONYMOUS_USER_ICON} name="로그인" />
         )}
       </button>
       {isMenuOpen && (
         <ul className={styles.popup}>
           {currentUsername ? (
-            <li
-              className={styles.popupItem}
-              onClick={() => {
-                handleLogoutClick();
-              }}
-            >
+            <li className={styles.popupItem} onClick={handleLogoutClick}>
               로그아웃
             </li>
           ) : (
