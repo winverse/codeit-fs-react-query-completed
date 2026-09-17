@@ -16,6 +16,9 @@
 # next.js
 /.next/
 /out/
+# next dev가 첫 실행 때 만드는 AI 에이전트 안내 파일
+/AGENTS.md
+/CLAUDE.md
 
 # production
 /build
