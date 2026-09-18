@@ -10,7 +10,7 @@ import * as styles from "./PostList.css.js";
 function PostList({ variant = FEED_VARIANT.HOME_FEED }) {
   const { currentUsername } = useLoginContext();
 
-  // 1. 무한 쿼리 훅으로 목록 데이터를 가져옵니다.
+  // 1. 포스트 목록 조회 훅으로 데이터를 가져옵니다.
   const {
     data: postsData,
     fetchNextPage,
