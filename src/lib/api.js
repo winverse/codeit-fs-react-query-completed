@@ -1,11 +1,11 @@
 import { COMMENTS_PAGE_LIMIT, POSTS_PAGE_LIMIT } from "./constants";
 
-// 1. API 기본 URL을 정합니다.
+// 1. API 기본 URL
 const BASE_URL =
   process.env.NEXT_PUBLIC_API_BASE_URL ??
   "https://learn.codeit.kr/api/codestudit";
 
-// 2. 포스트 목록 조회 함수를 만듭니다.
+// 2. 포스트 목록 조회 함수
 // Codestudit API의 페이지 기준은 0부터 시작합니다.
 export async function getPosts(page = 0, limit = POSTS_PAGE_LIMIT) {
   const response = await fetch(`${BASE_URL}/posts?page=${page}&limit=${limit}`);
@@ -17,7 +17,7 @@ export async function getPosts(page = 0, limit = POSTS_PAGE_LIMIT) {
   return response.json();
 }
 
-// 3. 사용자별 포스트 목록 조회 함수를 만듭니다.
+// 3. 사용자별 포스트 목록 조회 함수
 export async function getPostsByUsername(
   username,
   page = 0,
@@ -34,7 +34,7 @@ export async function getPostsByUsername(
   return response.json();
 }
 
-// 4. 포스트 업로드 함수를 만듭니다.
+// 4. 포스트 업로드 함수
 export async function uploadPost(newPost) {
   const response = await fetch(`${BASE_URL}/posts`, {
     method: "POST",
@@ -51,7 +51,7 @@ export async function uploadPost(newPost) {
   return response.json();
 }
 
-// 5. 사용자 정보 조회 함수를 만듭니다.
+// 5. 사용자 정보 조회 함수
 export async function getUserInfo(username) {
   const response = await fetch(`${BASE_URL}/users/${username}`);
 
@@ -62,7 +62,7 @@ export async function getUserInfo(username) {
   return response.json();
 }
 
-// 6. 포스트별 댓글 개수 조회 함수를 만듭니다.
+// 6. 포스트별 댓글 개수 조회 함수
 export async function getCommentCountByPostId(postId) {
   const response = await fetch(`${BASE_URL}/posts/${postId}/comments`);
 
@@ -74,7 +74,7 @@ export async function getCommentCountByPostId(postId) {
   return body.count;
 }
 
-// 7. 포스트별 댓글 목록 조회 함수를 만듭니다.
+// 7. 포스트별 댓글 목록 조회 함수
 export async function getCommentsByPostId(
   postId,
   page = 0,
@@ -91,7 +91,7 @@ export async function getCommentsByPostId(
   return response.json();
 }
 
-// 8. 댓글 작성 함수를 만듭니다.
+// 8. 댓글 작성 함수
 export async function addComment(postId, newComment) {
   const response = await fetch(`${BASE_URL}/posts/${postId}/comments`, {
     method: "POST",
@@ -108,7 +108,7 @@ export async function addComment(postId, newComment) {
   return response.json();
 }
 
-// 9. 포스트별 좋아요 개수 조회 함수를 만듭니다.
+// 9. 포스트별 좋아요 개수 조회 함수
 export async function getLikeCountByPostId(postId) {
   const response = await fetch(`${BASE_URL}/posts/${postId}/likes`);
 
@@ -120,7 +120,7 @@ export async function getLikeCountByPostId(postId) {
   return body.count;
 }
 
-// 10. 좋아요 여부 조회 함수를 만듭니다.
+// 10. 좋아요 여부 조회 함수
 export async function getLikeStatusByUsername(postId, username) {
   const response = await fetch(`${BASE_URL}/posts/${postId}/likes/${username}`);
 
@@ -133,7 +133,7 @@ export async function getLikeStatusByUsername(postId, username) {
   throw new Error("Failed to get like status of the post.");
 }
 
-// 11. 좋아요 추가 함수를 만듭니다.
+// 11. 좋아요 추가 함수
 export async function likePost(postId, username) {
   const response = await fetch(
     `${BASE_URL}/posts/${postId}/likes/${username}`,
@@ -147,7 +147,7 @@ export async function likePost(postId, username) {
   }
 }
 
-// 12. 좋아요 취소 함수를 만듭니다.
+// 12. 좋아요 취소 함수
 export async function unlikePost(postId, username) {
   const response = await fetch(
     `${BASE_URL}/posts/${postId}/likes/${username}`,

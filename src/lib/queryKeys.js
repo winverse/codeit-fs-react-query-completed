@@ -1,5 +1,5 @@
 export const queryKeys = {
-  // 1. posts 관련 키를 묶습니다.
+  // posts 관련 키를 묶습니다.
   posts: {
     all: () => ["posts"],
     list: () => ["posts", "list", "all"],
@@ -10,7 +10,6 @@ export const queryKeys = {
     likeCount: (postId) => ["posts", postId, "likeCount"],
     likeStatus: (postId, username) => ["posts", postId, "likeStatus", username],
   },
-  // 2. user 관련 키를 묶습니다.
   user: {
     info: (username) => ["user", username],
   },

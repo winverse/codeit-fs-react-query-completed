@@ -40,7 +40,7 @@ function QueryBoundary({
         >
           <Suspense
             fallback={
-              pendingFallback ?? (
+              pendingFallback || (
                 <Loading
                   title="로딩 중입니다..."
                   description="잠시만 기다려주세요."
