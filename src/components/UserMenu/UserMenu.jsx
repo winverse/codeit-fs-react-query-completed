@@ -72,7 +72,7 @@ function UserMenu() {
   return (
     <div className={styles.userMenu}>
       <button className={styles.iconButton} onClick={handleButtonClick}>
-        {/* 3. 로그인 여부에 따라 Suspense 분기 UI를 추가합니다. */}
+        {/* 3. 로그인 여부에 따라 Suspense 분기 화면을 추가합니다. */}
         {currentUsername ? (
           <Suspense
             fallback={
