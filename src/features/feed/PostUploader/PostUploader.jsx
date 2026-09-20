@@ -11,7 +11,7 @@ function PostUploader() {
   const { currentUsername } = useLoginContext();
   const queryClient = useQueryClient();
 
-  // 1. 업로드 뮤테이션을 준비합니다.
+  // 1. 업로드 요청을 보낼 useMutation을 준비합니다.
   const uploadPostMutation = useMutation({
     mutationFn: (newPost) => uploadPost(newPost),
     onSuccess: (_data, newPost) =>
@@ -27,7 +27,7 @@ function PostUploader() {
       ]),
   });
 
-  // 2. 업로드 요청을 뮤테이션으로 실행합니다.
+  // 2. 업로드 요청을 실행합니다.
   const handleUploadPost = (newPost) => {
     uploadPostMutation.mutate(newPost, {
       onSuccess: () => {
