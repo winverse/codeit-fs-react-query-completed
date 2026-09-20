@@ -30,7 +30,7 @@ function useLikeMutation() {
         queryKeys.posts.likeCount(postId),
       );
 
-      // 서버 응답 전에 UI를 먼저 반영합니다(낙관적 업데이트).
+      // 서버 응답 전에 화면을 먼저 반영합니다(낙관적 업데이트).
       queryClient.setQueryData(
         queryKeys.posts.likeStatus(postId, username),
         () => userAction === USER_ACTION.LIKE_POST,
