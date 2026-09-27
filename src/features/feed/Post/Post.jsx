@@ -1,11 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import clsx from "clsx";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { Card } from "@/components/Card";
+import { Loading } from "@/components/Loading";
 import { ContentInfo } from "@/features/feed/ContentInfo";
 import { Button } from "@/components/Button";
 import { CommentList } from "@/features/feed/CommentList";
@@ -27,11 +28,17 @@ const GREY_HEART_IMAGE = "/assets/grey-heart.png";
 function Post({ post }) {
   const { currentUsername } = useLoginContext();
 
-  if (currentUsername) {
-    return <PostWithUser post={post} currentUsername={currentUsername} />;
-  }
-
-  return <PostWithoutUser post={post} />;
+  return (
+    <Suspense
+      fallback={<Loading description="포스트를 불러오는 중입니다..." />}
+    >
+      {currentUsername ? (
+        <PostWithUser post={post} currentUsername={currentUsername} />
+      ) : (
+        <PostWithoutUser post={post} />
+      )}
+    </Suspense>
+  );
 }
 
 function PostWithUser({ post, currentUsername }) {
