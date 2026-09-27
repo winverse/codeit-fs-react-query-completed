@@ -6,8 +6,6 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { Card } from "@/components/Card";
-import { QueryBoundary } from "@/components/QueryBoundary";
-import { Loading } from "@/components/Loading";
 import { ContentInfo } from "@/features/feed/ContentInfo";
 import { Button } from "@/components/Button";
 import { CommentList } from "@/features/feed/CommentList";
@@ -140,13 +138,7 @@ function PostContent({
           </Button>
         </div>
         {showCommentList && (
-          <QueryBoundary
-            pendingFallback={
-              <Loading description="댓글을 불러오는 중입니다..." />
-            }
-          >
-            <CommentList currentUserInfo={currentUserInfo} postId={post.id} />
-          </QueryBoundary>
+          <CommentList currentUserInfo={currentUserInfo} postId={post.id} />
         )}
       </div>
     </Card>

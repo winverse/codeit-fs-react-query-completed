@@ -1,12 +1,15 @@
 "use client";
 
-import { useEffect, useState, useTransition } from "react";
+import { useEffect, useState } from "react";
 import {
+  keepPreviousData,
   useMutation,
+  useQuery,
   useQueryClient,
-  useSuspenseQuery,
 } from "@tanstack/react-query";
 import { Button } from "@/components/Button";
+import { Loading } from "@/components/Loading";
+import { Warn } from "@/components/Warn";
 import { Comment } from "@/features/feed/Comment";
 import { CommentForm } from "@/features/feed/CommentForm";
 import { addComment, getCommentsByPostId } from "@/lib/api";
@@ -16,18 +19,23 @@ import * as styles from "./CommentList.css.js";
 
 function CommentList({ currentUserInfo, postId }) {
   const [page, setPage] = useState(0);
-  const [isPagePending, startPageTransition] = useTransition();
   const queryClient = useQueryClient();
 
   // 1. 댓글 목록을 페이지 단위로 조회합니다.
-  const { data: commentsData } = useSuspenseQuery({
+  const {
+    data: commentsData,
+    isPending,
+    isError,
+    isPlaceholderData,
+  } = useQuery({
     queryKey: queryKeys.posts.commentsPage(postId, page),
     queryFn: () => getCommentsByPostId(postId, page, COMMENTS_PAGE_LIMIT),
+    placeholderData: keepPreviousData,
   });
 
   // 2. 다음 페이지가 있을 때만 미리 가져와 이동 지연을 줄입니다.
   useEffect(() => {
-    if (!commentsData.hasMore) {
+    if (isPlaceholderData || !commentsData?.hasMore) {
       return;
     }
 
@@ -38,9 +46,9 @@ function CommentList({ currentUserInfo, postId }) {
           getCommentsByPostId(postId, page + 1, COMMENTS_PAGE_LIMIT),
       })
       .catch(() => {});
-  }, [commentsData.hasMore, queryClient, postId, page]);
+  }, [commentsData?.hasMore, isPlaceholderData, queryClient, postId, page]);
 
-  const comments = commentsData.results;
+  const comments = commentsData?.results;
 
   const addCommentMutation = useMutation({
     mutationFn: (newComment) => addComment(postId, newComment),
@@ -61,26 +69,30 @@ function CommentList({ currentUserInfo, postId }) {
     addCommentMutation.mutate(newComment);
   };
 
+  if (isPending) {
+    return <Loading description="댓글을 불러오는 중입니다..." />;
+  }
+
+  if (isError) {
+    return <Warn description="댓글을 불러오지 못했습니다." />;
+  }
+
   // 3. 페이지 이동 버튼을 구성합니다.
   const paginationButtons = (
     <div className={styles.pagination}>
       <Button
-        disabled={isPagePending || page === 0}
+        disabled={isPlaceholderData || page === 0}
         onClick={() => {
-          startPageTransition(() => {
-            setPage((currentPage) => Math.max(currentPage - 1, 0));
-          });
+          setPage((currentPage) => Math.max(currentPage - 1, 0));
         }}
         className={styles.paginationButton}
       >
         &lt;
       </Button>
       <Button
-        disabled={isPagePending || !commentsData.hasMore}
+        disabled={isPlaceholderData || !commentsData.hasMore}
         onClick={() => {
-          startPageTransition(() => {
-            setPage((currentPage) => currentPage + 1);
-          });
+          setPage((currentPage) => currentPage + 1);
         }}
         className={styles.paginationButton}
       >
