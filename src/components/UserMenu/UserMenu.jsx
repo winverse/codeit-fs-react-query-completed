@@ -14,8 +14,8 @@ import * as styles from "./UserMenu.css.js";
 
 const ANONYMOUS_USER_ICON = "/assets/person.png";
 
-// 1. UserMenuButtonContent 컴포넌트를 만들어 버튼 내용을 분리합니다.
-function UserMenuButtonContent({ photo, name }) {
+// 버튼 안에 프로필 사진과 이름을 표시합니다.
+function UserMenuButtonContent({ photo = ANONYMOUS_USER_ICON, name }) {
   return (
     <>
       <ProfilePhoto photo={photo} name={name} />
@@ -24,7 +24,7 @@ function UserMenuButtonContent({ photo, name }) {
   );
 }
 
-// 2. UserMenuLoggedIn 컴포넌트를 만들어 사용자 정보 조회와 Suspense를 연결합니다.
+// 1. UserMenuLoggedIn 컴포넌트를 만들어 사용자 정보 조회와 Suspense를 연결합니다.
 function UserMenuLoggedIn({ currentUsername }) {
   const { data: currentUserInfo } = useSuspenseQuery({
     queryKey: queryKeys.user.info(currentUsername),
@@ -73,20 +73,13 @@ function UserMenu() {
   return (
     <div className={styles.userMenu}>
       <button className={styles.iconButton} onClick={handleButtonClick}>
-        {/* 3. 로그인 여부에 따라 Suspense 분기 화면을 추가합니다. */}
+        {/* 2. 로그인 여부에 따라 Suspense 분기 화면을 추가합니다. */}
         {currentUsername ? (
-          <Suspense
-            fallback={
-              <UserMenuButtonContent
-                photo={ANONYMOUS_USER_ICON}
-                name="로딩 중"
-              />
-            }
-          >
+          <Suspense fallback={<UserMenuButtonContent name="로딩 중" />}>
             <UserMenuLoggedIn currentUsername={currentUsername} />
           </Suspense>
         ) : (
-          <UserMenuButtonContent photo={ANONYMOUS_USER_ICON} name="로그인" />
+          <UserMenuButtonContent name="로그인" />
         )}
       </button>
       {isMenuOpen && (
