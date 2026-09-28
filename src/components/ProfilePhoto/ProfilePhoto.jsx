@@ -14,6 +14,7 @@ function ProfilePhoto({ photo, name }) {
       alt={alt}
       width={30}
       height={30}
+      loading="eager"
     />
   );
 }
