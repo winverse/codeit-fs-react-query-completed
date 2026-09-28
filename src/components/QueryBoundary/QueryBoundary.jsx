@@ -8,10 +8,14 @@ import { Loading } from "@/components/Loading";
 import { Warn } from "@/components/Warn";
 import * as styles from "./QueryBoundary.css.js";
 
-function DefaultErrorFallback({ title, description, onRetry }) {
+function DefaultErrorFallback({ onRetry }) {
   return (
     <div className={styles.errorFallback}>
-      <Warn variant="big" title={title} description={description} />
+      <Warn
+        variant="big"
+        title="문제가 발생했습니다."
+        description="잠시 후 다시 시도해 주세요."
+      />
       <Button onClick={onRetry} className={styles.retryButton}>
         다시 시도
       </Button>
@@ -19,23 +23,14 @@ function DefaultErrorFallback({ title, description, onRetry }) {
   );
 }
 
-function QueryBoundary({
-  children,
-  pendingFallback,
-  errorTitle = "문제가 발생했습니다.",
-  errorDescription = "잠시 후 다시 시도해 주세요.",
-}) {
+function QueryBoundary({ children, pendingFallback }) {
   return (
     <QueryErrorResetBoundary>
       {({ reset }) => (
         <ErrorBoundary
           onReset={reset}
           fallbackRender={({ resetErrorBoundary }) => (
-            <DefaultErrorFallback
-              title={errorTitle}
-              description={errorDescription}
-              onRetry={resetErrorBoundary}
-            />
+            <DefaultErrorFallback onRetry={resetErrorBoundary} />
           )}
         >
           <Suspense
