@@ -13,7 +13,7 @@ import { Warn } from "@/components/Warn";
 import { Comment } from "@/features/feed/Comment";
 import { CommentForm } from "@/features/feed/CommentForm";
 import { addComment, getCommentsByPostId } from "@/lib/api";
-import { COMMENTS_PAGE_LIMIT } from "@/lib/constants";
+import { COMMENTS_PAGE_LIMIT } from "@/constants/pagination";
 import { queryKeys } from "@/lib/queryKeys";
 import * as styles from "./CommentList.css.js";
 

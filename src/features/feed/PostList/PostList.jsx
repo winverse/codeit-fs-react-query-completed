@@ -1,7 +1,7 @@
 "use client";
 
 import { Post } from "@/features/feed/Post";
-import { FEED_VARIANT } from "@/lib/constants";
+import { FEED_VARIANT } from "@/constants/feed";
 import { Button } from "@/components/Button";
 import { useLoginContext } from "@/contexts/LoginContext";
 import usePostListQuery from "@/features/feed/hooks/usePostListQuery";

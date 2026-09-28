@@ -4,7 +4,7 @@ import { QueryBoundary } from "@/components/QueryBoundary";
 import { PostList } from "@/features/feed/PostList";
 import { PostUploader } from "@/features/feed/PostUploader";
 import { Container } from "@/components/Container";
-import { FEED_VARIANT } from "@/lib/constants";
+import { FEED_VARIANT } from "@/constants/feed";
 import { useLoginContext } from "@/contexts/LoginContext";
 import { NotLoggedInPage } from "@/features/not-logged-in/NotLoggedInPage";
 import * as styles from "./MyFeedPage.css.js";

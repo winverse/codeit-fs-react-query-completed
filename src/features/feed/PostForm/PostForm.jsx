@@ -5,7 +5,7 @@ import { TextInputForm } from "@/features/feed/TextInputForm";
 import { useLoginContext } from "@/contexts/LoginContext";
 import { queryKeys } from "@/lib/queryKeys";
 import { getUserInfo } from "@/lib/api";
-import { USER_INFO_STALE_TIME_MS } from "@/lib/constants";
+import { USER_INFO_STALE_TIME_MS } from "@/constants/time";
 import * as styles from "./PostForm.css.js";
 
 function PostForm({ onSubmit, buttonDisabled }) {

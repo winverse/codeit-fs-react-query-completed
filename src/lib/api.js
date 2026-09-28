@@ -1,4 +1,4 @@
-import { COMMENTS_PAGE_LIMIT, POSTS_PAGE_LIMIT } from "./constants";
+import { COMMENTS_PAGE_LIMIT, POSTS_PAGE_LIMIT } from "@/constants/pagination";
 
 // 1. API 기본 URL
 const BASE_URL =

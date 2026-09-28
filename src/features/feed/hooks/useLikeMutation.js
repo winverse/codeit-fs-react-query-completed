@@ -1,6 +1,6 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { toast } from "react-toastify";
-import { USER_ACTION } from "@/lib/constants";
+import { USER_ACTION } from "@/constants/feed";
 import { queryKeys } from "@/lib/queryKeys";
 import { likePost, unlikePost } from "@/lib/api";
 

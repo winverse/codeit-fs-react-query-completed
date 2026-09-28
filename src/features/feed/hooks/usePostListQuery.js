@@ -1,6 +1,7 @@
 import { useSuspenseInfiniteQuery } from "@tanstack/react-query";
 import { getPosts, getPostsByUsername } from "@/lib/api";
-import { FEED_VARIANT, POSTS_PAGE_LIMIT } from "@/lib/constants";
+import { FEED_VARIANT } from "@/constants/feed";
+import { POSTS_PAGE_LIMIT } from "@/constants/pagination";
 import { queryKeys } from "@/lib/queryKeys";
 
 // 1. 피드 종류에 맞는 캐시 키와 API 함수를 고릅니다.

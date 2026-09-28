@@ -10,7 +10,8 @@ import { Loading } from "@/components/Loading";
 import { ContentInfo } from "@/features/feed/ContentInfo";
 import { Button } from "@/components/Button";
 import { CommentList } from "@/features/feed/CommentList";
-import { USER_ACTION, USER_INFO_STALE_TIME_MS } from "@/lib/constants";
+import { USER_ACTION } from "@/constants/feed";
+import { USER_INFO_STALE_TIME_MS } from "@/constants/time";
 import { queryKeys } from "@/lib/queryKeys";
 import {
   getCommentCountByPostId,
