@@ -15,16 +15,17 @@ pnpm dev
 
 공부 기록을 공유하는 SNS입니다. 포스트 목록 더 불러오기, 사용자별 피드, 댓글 페이지네이션, 좋아요 추가·취소를 React Query로 구현했습니다.
 
-| 영역                   | 위치                                             |
-| ---------------------- | ------------------------------------------------ |
-| 쿼리 키 팩토리         | `src/lib/queryKeys.js`                           |
-| API 함수               | `src/lib/api.js`                                 |
-| Provider와 캐시 기본값 | `src/providers/AppProviders.jsx`                 |
-| 시간 상수              | `src/constants/time.js`                          |
-| 목록 더 불러오기       | `src/features/feed/hooks/usePostListQuery.js`    |
-| 조회 경계              | `src/components/QueryBoundary/QueryBoundary.jsx` |
-| 댓글 페이지네이션      | `src/features/feed/CommentList/CommentList.jsx`  |
-| 좋아요 추가·취소       | `src/features/feed/hooks/useLikeMutation.js`     |
+| 영역                        | 위치                                             |
+| --------------------------- | ------------------------------------------------ |
+| 쿼리 키 팩토리              | `src/lib/queryKeys.js`                           |
+| API 함수                    | `src/lib/api.js`                                 |
+| Provider와 캐시 기본값      | `src/providers/AppProviders.jsx`                 |
+| 시간 상수                   | `src/constants/time.js`                          |
+| 목록 더 불러오기            | `src/features/feed/hooks/usePostListQuery.js`    |
+| 서버 컴포넌트에서 미리 받기 | `src/app/page.js`                                |
+| 조회 경계                   | `src/components/QueryBoundary/QueryBoundary.jsx` |
+| 댓글 페이지네이션           | `src/features/feed/CommentList/CommentList.jsx`  |
+| 좋아요 추가·취소            | `src/features/feed/hooks/useLikeMutation.js`     |
 
 ## 참고
 
