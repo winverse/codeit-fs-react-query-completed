@@ -20,6 +20,7 @@ pnpm dev
 | 쿼리 키 팩토리         | `src/lib/queryKeys.js`                           |
 | API 함수               | `src/lib/api.js`                                 |
 | Provider와 캐시 기본값 | `src/providers/AppProviders.jsx`                 |
+| 시간 상수              | `src/constants/time.js`                          |
 | 목록 더 불러오기       | `src/features/feed/hooks/usePostListQuery.js`    |
 | 조회 경계              | `src/components/QueryBoundary/QueryBoundary.jsx` |
 | 댓글 페이지네이션      | `src/features/feed/CommentList/CommentList.jsx`  |

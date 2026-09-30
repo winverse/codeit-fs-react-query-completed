@@ -7,16 +7,14 @@ import {
 } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { ToastContainer } from "react-toastify";
+import { DEFAULT_STALE_TIME_MS, TOAST_AUTO_CLOSE_MS } from "@/constants/time";
 import { LoginProvider } from "@/contexts/LoginContext";
-
-const ONE_MINUTE_MS = 60_000;
-const TOAST_AUTO_CLOSE_MS = 2_000;
 
 function makeQueryClient() {
   return new QueryClient({
     defaultOptions: {
       queries: {
-        staleTime: ONE_MINUTE_MS,
+        staleTime: DEFAULT_STALE_TIME_MS,
       },
     },
   });
