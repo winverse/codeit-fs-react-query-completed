@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
   keepPreviousData,
   useMutation,
@@ -32,22 +32,6 @@ function CommentList({ currentUserInfo, postId }) {
     placeholderData: keepPreviousData,
   });
 
-  useEffect(() => {
-    if (isPlaceholderData || !commentsData?.hasMore) {
-      return;
-    }
-
-    queryClient
-      .query({
-        queryKey: queryKeys.posts.commentsPage(postId, page + 1),
-        queryFn: () =>
-          getCommentsByPostId(postId, page + 1, COMMENTS_PAGE_LIMIT),
-      })
-      .catch(() => {});
-  }, [commentsData?.hasMore, isPlaceholderData, queryClient, postId, page]);
-
-  const comments = commentsData?.results;
-
   const addCommentMutation = useMutation({
     mutationFn: (newComment) => addComment(postId, newComment),
     onSuccess: () =>
@@ -74,6 +58,8 @@ function CommentList({ currentUserInfo, postId }) {
   if (isError) {
     return <Warn description="댓글을 불러오지 못했습니다." />;
   }
+
+  const comments = commentsData.results;
 
   const paginationButtons = (
     <div className={styles.pagination}>
