@@ -5,7 +5,7 @@ import { createContext, useContext, useState } from "react";
 // 1. 로그인 상태를 공유할 컨텍스트를 만듭니다.
 export const LoginContext = createContext(null);
 
-// 2. 컨텍스트 접근을 전담하는 훅을 만듭니다.
+// 2. 컨텍스트 접근을 전담하는 Hook을 만듭니다.
 export function useLoginContext() {
   const context = useContext(LoginContext);
 
