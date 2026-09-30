@@ -23,7 +23,7 @@ function DefaultErrorFallback({ onRetry }) {
   );
 }
 
-function QueryBoundary({ children, pendingFallback }) {
+function QueryBoundary({ children }) {
   return (
     <QueryErrorResetBoundary>
       {({ reset }) => (
@@ -35,12 +35,10 @@ function QueryBoundary({ children, pendingFallback }) {
         >
           <Suspense
             fallback={
-              pendingFallback || (
-                <Loading
-                  title="로딩 중입니다..."
-                  description="잠시만 기다려주세요."
-                />
-              )
+              <Loading
+                title="로딩 중입니다..."
+                description="잠시만 기다려주세요."
+              />
             }
           >
             {children}
