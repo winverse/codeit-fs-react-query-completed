@@ -13,7 +13,7 @@ pnpm dev
 
 ## 구성
 
-공부 기록을 공유하는 SNS입니다. 포스트 목록 더 불러오기, 사용자별 피드, 댓글 페이지네이션, 좋아요의 낙관적 업데이트와 실패 복구를 React Query로 구현했습니다.
+공부 기록을 공유하는 SNS입니다. 포스트 목록 더 불러오기, 사용자별 피드, 댓글 페이지네이션, 좋아요 추가·취소를 React Query로 구현했습니다.
 
 | 영역                   | 위치                                             |
 | ---------------------- | ------------------------------------------------ |
@@ -24,7 +24,7 @@ pnpm dev
 | 목록 더 불러오기       | `src/features/feed/hooks/usePostListQuery.js`    |
 | 조회 경계              | `src/components/QueryBoundary/QueryBoundary.jsx` |
 | 댓글 페이지네이션      | `src/features/feed/CommentList/CommentList.jsx`  |
-| 좋아요 낙관적 업데이트 | `src/features/feed/hooks/useLikeMutation.js`     |
+| 좋아요 추가·취소       | `src/features/feed/hooks/useLikeMutation.js`     |
 
 ## 참고
 
