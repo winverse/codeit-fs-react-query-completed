@@ -8,7 +8,6 @@ function useLikeMutation() {
   const queryClient = useQueryClient();
 
   return useMutation({
-    // 1. onMutate: 요청 직전에 조회 취소, 스냅샷 저장, 낙관적 반영을 처리합니다.
     onMutate: async ({ postId, username, userAction }) => {
       // 진행 중인 관련 조회를 먼저 취소합니다.
       await Promise.all([
@@ -43,14 +42,12 @@ function useLikeMutation() {
       return { previousLikeStatus, previousLikeCount };
     },
 
-    // 2. mutationFn: 실제 서버 변경 요청을 실행합니다.
     mutationFn: async ({ postId, username, userAction }) => {
       const likeActionFn =
         userAction === USER_ACTION.LIKE_POST ? likePost : unlikePost;
       await likeActionFn(postId, username);
     },
 
-    // 3. onError: 실패 시 onMutate에서 저장한 스냅샷으로 롤백합니다.
     onError: (_error, { postId, username }, onMutateResult) => {
       queryClient.setQueryData(
         queryKeys.posts.likeStatus(postId, username),
@@ -63,7 +60,6 @@ function useLikeMutation() {
       toast("좋아요 처리에 실패했습니다.");
     },
 
-    // 4. onSettled: 성공/실패와 무관하게 마지막에 서버 기준으로 최종 동기화합니다.
     onSettled: (_data, _error, { postId, username }) =>
       Promise.all([
         queryClient.invalidateQueries({

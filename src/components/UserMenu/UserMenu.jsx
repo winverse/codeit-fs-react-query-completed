@@ -24,7 +24,6 @@ function UserMenuButtonContent({ photo = ANONYMOUS_USER_ICON, name }) {
   );
 }
 
-// 1. UserMenuLoggedIn 컴포넌트를 만들어 사용자 정보 조회와 Suspense를 연결합니다.
 function UserMenuLoggedIn({ currentUsername }) {
   const { data: currentUserInfo } = useSuspenseQuery({
     queryKey: queryKeys.user.info(currentUsername),
@@ -73,7 +72,6 @@ function UserMenu() {
   return (
     <div className={styles.userMenu}>
       <button className={styles.iconButton} onClick={handleButtonClick}>
-        {/* 2. 로그인 여부에 따라 Suspense 분기 화면을 추가합니다. */}
         {currentUsername ? (
           <Suspense fallback={<UserMenuButtonContent name="로딩 중" />}>
             <UserMenuLoggedIn currentUsername={currentUsername} />

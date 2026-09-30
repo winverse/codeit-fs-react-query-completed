@@ -4,7 +4,6 @@ import { FEED_VARIANT } from "@/constants/feed";
 import { POSTS_PAGE_LIMIT } from "@/constants/pagination";
 import { queryKeys } from "@/lib/queryKeys";
 
-// 1. 피드 종류에 맞는 캐시 키와 API 함수를 고릅니다.
 function getPostListQueryOptions({ variant, currentUsername }) {
   if (variant === FEED_VARIANT.MY_FEED) {
     return {
@@ -30,7 +29,6 @@ function usePostListQuery({ variant, currentUsername }) {
     queryKey,
     queryFn,
     initialPageParam: 0,
-    // 2. 서버에 다음 페이지가 있을 때만 번호를 1 늘립니다.
     getNextPageParam: (lastPage, allPages, lastPageParam) => {
       if (!lastPage.hasMore) {
         return undefined;

@@ -10,14 +10,12 @@ import * as styles from "./PostForm.css.js";
 
 function PostForm({ onSubmit, buttonDisabled }) {
   const { currentUsername } = useLoginContext();
-  // 1. 현재 사용자 정보를 쿼리로 조회합니다.
   const { data: currentUserInfo } = useSuspenseQuery({
     queryKey: queryKeys.user.info(currentUsername),
     queryFn: () => getUserInfo(currentUsername),
     staleTime: USER_INFO_STALE_TIME_MS,
   });
 
-  // 2. 제출 시 newPost를 구성해 업로드 흐름으로 넘깁니다.
   const handleSubmit = (content) => {
     const newPost = {
       username: currentUserInfo.username,
@@ -29,7 +27,6 @@ function PostForm({ onSubmit, buttonDisabled }) {
 
   return (
     <div className={styles.textInputForm}>
-      {/* 3. 입력 폼에 사용자 정보를 전달합니다. */}
       <TextInputForm
         onSubmit={handleSubmit}
         currentUserInfo={currentUserInfo}

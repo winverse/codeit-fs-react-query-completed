@@ -12,7 +12,6 @@ import { LoginProvider } from "@/contexts/LoginContext";
 const ONE_MINUTE_MS = 60_000;
 const TOAST_AUTO_CLOSE_MS = 2_000;
 
-// 1. QueryClient를 만드는 함수를 따로 둡니다.
 function makeQueryClient() {
   return new QueryClient({
     defaultOptions: {
@@ -25,7 +24,6 @@ function makeQueryClient() {
 
 let browserQueryClient;
 
-// 2. 서버와 브라우저에서 QueryClient를 만드는 방법을 나눕니다.
 function getQueryClient() {
   if (environmentManager.isServer()) {
     return makeQueryClient();
@@ -38,11 +36,9 @@ function getQueryClient() {
 }
 
 function AppProviders({ children }) {
-  // 3. 앱 전역에서 공유할 QueryClient 인스턴스를 가져옵니다.
   const queryClient = getQueryClient();
 
   return (
-    // 4. QueryClientProvider로 LoginProvider와 Devtools를 함께 감쌉니다.
     <QueryClientProvider client={queryClient}>
       <LoginProvider>
         {children}

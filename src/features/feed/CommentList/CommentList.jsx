@@ -21,7 +21,6 @@ function CommentList({ currentUserInfo, postId }) {
   const [page, setPage] = useState(0);
   const queryClient = useQueryClient();
 
-  // 1. 댓글 목록을 페이지 단위로 조회합니다.
   const {
     data: commentsData,
     isPending,
@@ -33,7 +32,6 @@ function CommentList({ currentUserInfo, postId }) {
     placeholderData: keepPreviousData,
   });
 
-  // 2. 다음 페이지가 있을 때만 미리 가져와 이동 지연을 줄입니다.
   useEffect(() => {
     if (isPlaceholderData || !commentsData?.hasMore) {
       return;
@@ -77,7 +75,6 @@ function CommentList({ currentUserInfo, postId }) {
     return <Warn description="댓글을 불러오지 못했습니다." />;
   }
 
-  // 3. 페이지 이동 버튼을 구성합니다.
   const paginationButtons = (
     <div className={styles.pagination}>
       <Button
@@ -104,7 +101,6 @@ function CommentList({ currentUserInfo, postId }) {
   return (
     <div className={styles.commentList}>
       <div>
-        {/* 4. 댓글 목록을 렌더링합니다. */}
         {comments.map((comment) => (
           <Comment key={comment.id} comment={comment} />
         ))}
