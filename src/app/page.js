@@ -25,16 +25,20 @@ export default async function Home() {
 
   await Promise.all([
     ...firstPagePosts.map((post) =>
-      queryClient.query({
-        queryKey: queryKeys.posts.commentCount(post.id),
-        queryFn: () => getCommentCountByPostId(post.id),
-      }),
+      queryClient
+        .query({
+          queryKey: queryKeys.posts.commentCount(post.id),
+          queryFn: () => getCommentCountByPostId(post.id),
+        })
+        .catch(() => {}),
     ),
     ...firstPagePosts.map((post) =>
-      queryClient.query({
-        queryKey: queryKeys.posts.likeCount(post.id),
-        queryFn: () => getLikeCountByPostId(post.id),
-      }),
+      queryClient
+        .query({
+          queryKey: queryKeys.posts.likeCount(post.id),
+          queryFn: () => getLikeCountByPostId(post.id),
+        })
+        .catch(() => {}),
     ),
   ]);
 
