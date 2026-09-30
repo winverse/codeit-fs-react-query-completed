@@ -11,13 +11,11 @@ import { HomePage } from "@/features/home/HomePage";
 export default async function Home() {
   const queryClient = new QueryClient();
 
-  await queryClient
-    .infiniteQuery({
-      queryKey: queryKeys.posts.list(),
-      queryFn: ({ pageParam }) => getPosts(pageParam, POSTS_PAGE_LIMIT),
-      initialPageParam: 0,
-    })
-    .catch(() => {});
+  await queryClient.infiniteQuery({
+    queryKey: queryKeys.posts.list(),
+    queryFn: ({ pageParam }) => getPosts(pageParam, POSTS_PAGE_LIMIT),
+    initialPageParam: 0,
+  });
 
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
